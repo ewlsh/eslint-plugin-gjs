@@ -60,13 +60,13 @@ You can also add `gjs/cairo` or `gjs/girepository` to your env to enable the rel
 * gjs/no-super
 * gjs/no-template-strings
 * gjs/translation-strings
-
 * DEPRECATED: gjs/no-unsupported-syntax
 
 ## Not Implemented
 * Lang.Class member formatting
 * Object literal formatting (unlikely to be implemented)
 * Lang.bind enforcement for closures
+* Prohibit Promise, Symbol, and WeakSet globals.
 
 
 
