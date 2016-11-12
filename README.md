@@ -57,7 +57,7 @@ The plugin automatically imports all relevant rules. If you would like to avoid 
 
 * DEPRECATED: gjs/no-unsupported-syntax
 
-# Not Implemented
+## Not Implemented
 * Lang.Class member formatting
 * Object literal formatting (unlikely to be implemented)
 * Lang.bind enforcement for closures
