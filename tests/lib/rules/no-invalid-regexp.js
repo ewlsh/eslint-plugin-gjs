@@ -3,16 +3,18 @@
  * @author Michael Ficarra
  */
 
-"use strict";
+'use strict';
 
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/no-invalid-regexp"),
-     RuleTester = require("eslint").RuleTester;
+const rule = require('../../../lib/rules/no-invalid-regexp');
+const RuleTester = require('eslint').RuleTester;
 
 const ruleTester = new RuleTester();
+
+/* eslint-disable quotes */
 
 ruleTester.run("no-invalid-regexp", rule, {
     valid: [
@@ -41,3 +43,5 @@ ruleTester.run("no-invalid-regexp", rule, {
         { code: "new RegExp(')');", errors: [{ message: "Invalid regular expression: /)/: Unmatched ')'.", type: "NewExpression" }] }
     ]
 });
+
+/* eslint-enable quotes */

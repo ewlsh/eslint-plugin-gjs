@@ -3,16 +3,16 @@
  * @author Evan Welsh
  */
 
-"use strict";
+'use strict';
 
-const ERROR_MESSAGE = "GJS does not support generator functions.";
+const ERROR_MESSAGE = 'GJS does not support generator functions.';
 
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/no-generators"),
-     RuleTester = require("eslint").RuleTester;
+const rule = require('../../../lib/rules/no-generators');
+const RuleTester = require('eslint').RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
@@ -20,25 +20,25 @@ const rule = require("../../../lib/rules/no-generators"),
 
 const ruleTester = new RuleTester();
 
-ruleTester.run("no-generators", rule, {
+ruleTester.run('no-generators', rule, {
     valid: [
         {
-            code: "function a() { return a + 1; }",
+            code: 'function a() { return a + 1; }',
             parserOptions: { ecmaVersion: 6 },
         },
         {
-            code: "function b() {}",
+            code: 'function b() {}',
             parserOptions: { ecmaVersion: 6 },
         }
     ],
     invalid: [
         { 
-            code: "function* a() { return a + 1; }",
+            code: 'function* a() { return a + 1; }',
             parserOptions: { ecmaVersion: 6 },
             errors: [{ message: ERROR_MESSAGE }]
         },
         { 
-             code: "function* b() {}",
+            code: 'function* b() {}',
             parserOptions: { ecmaVersion: 6 },
             errors: [{ message: ERROR_MESSAGE }]
         }

@@ -3,16 +3,16 @@
  * @author Evan Welsh
  */
 
-"use strict";
+'use strict';
 
-const ERROR_MESSAGE = "The super operator is not supported in GJS.";
+const ERROR_MESSAGE = 'The super operator is not supported in GJS.';
 
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/no-super"),
-     RuleTester = require("eslint").RuleTester;
+const rule = require('../../../lib/rules/no-super');
+const RuleTester = require('eslint').RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
@@ -20,17 +20,17 @@ const rule = require("../../../lib/rules/no-super"),
 
 const ruleTester = new RuleTester();
 
-ruleTester.run("no-super", rule, {
+ruleTester.run('no-super', rule, {
     valid: [
         {
             // TODO: This is a horrible validity test...
-            code: "function a() { this.super(); }",
+            code: 'function a() { this.super(); }',
             parserOptions: { ecmaVersion: 6 },
         },
     ],
     invalid: [
         {
-            code: "function b() { super(); }",
+            code: 'function b() { super(); }',
             parserOptions: {ecmaVersion: 6},
             errors: [{ message: ERROR_MESSAGE }]
         }

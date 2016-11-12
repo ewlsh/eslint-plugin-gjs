@@ -3,16 +3,16 @@
  * @author Evan Welsh
  */
 
-"use strict";
+'use strict';
 
-const ERROR_MESSAGE = "Javascript classes are not supported in GJS. Use Lang.Class instead.";
+const ERROR_MESSAGE = 'Javascript classes are not supported in GJS. Use Lang.Class instead.';
 
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/no-js-class"),
-     RuleTester = require("eslint").RuleTester;
+const rule = require('../../../lib/rules/no-js-class');
+const RuleTester = require('eslint').RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
@@ -20,25 +20,25 @@ const rule = require("../../../lib/rules/no-js-class"),
 
 const ruleTester = new RuleTester();
 
-ruleTester.run("no-js-class", rule, {
+ruleTester.run('no-js-class', rule, {
     valid: [
         {
-            code: "const Hi = new Lang.Class({ Name: Hi });",
+            code: 'const Hi = new Lang.Class({ Name: Hi });',
             parserOptions: { ecmaVersion: 6 },
         },
         {
-            code: "const Hello = new Lang.Class({ Name: Hi });",
+            code: 'const Hello = new Lang.Class({ Name: Hi });',
             parserOptions: { ecmaVersion: 6 },
         }
     ],
     invalid: [
         { 
-            code: "class Hi {}",
+            code: 'class Hi {}',
             parserOptions: { ecmaVersion: 6 },
             errors: [{ message: ERROR_MESSAGE }]
         },
         { 
-             code: "class Hello {}",
+            code: 'class Hello {}',
             parserOptions: { ecmaVersion: 6 },
             errors: [{ message: ERROR_MESSAGE }]
         }

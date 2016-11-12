@@ -3,7 +3,7 @@
  * @author Annie Zhang, Evan Welsh
  */
 
-"use strict";
+'use strict';
 
 // "GJS does not support {{radixName}} literals. Use parseInt({{unprefixed}}, {{radix}}) instead."
 
@@ -11,8 +11,8 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/no-numeric-literals"),
-     RuleTester = require("eslint").RuleTester;
+const rule = require('../../../lib/rules/no-numeric-literals');
+const RuleTester = require('eslint').RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
@@ -20,37 +20,37 @@ const rule = require("../../../lib/rules/no-numeric-literals"),
 
 const ruleTester = new RuleTester();
 
-ruleTester.run("no-numeric-literals", rule, {
+ruleTester.run('no-numeric-literals', rule, {
     valid: [
-        "1234",
+        '1234',
         {
-            code: "parseInt(\"111110111\", 2) === 503;",
+            code: 'parseInt("111110111", 2) === 503;',
             parserOptions: { ecmaVersion: 6 },
         },
         {
-            code: "parseInt(\"767\", 8) === 503;",
+            code: 'parseInt("767", 8) === 503;',
             parserOptions: { ecmaVersion: 6 },
         },
         {
-            code: "parseInt(\"1F7\", 16) === 255;",
+            code: 'parseInt("1F7", 16) === 255;',
             parserOptions: { ecmaVersion: 6 },
         }
     ],
     invalid: [
         {
-            code: "0b111110111 === 503;",
+            code: '0b111110111 === 503;',
             parserOptions: { ecmaVersion: 6 },
-            errors: [{ message: "GJS does not support binary literals. Use parseInt('111110111', 2) instead." }]
+            errors: [{ message: 'GJS does not support binary literals. Use parseInt(\'111110111\', 2) instead.' }]
         },
         {
-            code: "0o767 === 503;",
+            code: '0o767 === 503;',
             parserOptions: { ecmaVersion: 6 },
-            errors: [{ message: "GJS does not support octal literals. Use parseInt('767', 8) instead." }]
+            errors: [{ message: 'GJS does not support octal literals. Use parseInt(\'767\', 8) instead.' }]
         },
         {
-            code: "0x1F7 === 503;",
+            code: '0x1F7 === 503;',
             parserOptions: { ecmaVersion: 6 },
-            errors: [{ message: "GJS does not support hexadecimal literals. Use parseInt('1F7', 16) instead." }]
+            errors: [{ message: 'GJS does not support hexadecimal literals. Use parseInt(\'1F7\', 16) instead.' }]
         },
     ]
 });

@@ -3,14 +3,14 @@
  * @author Evan Welsh
  */
 
-"use strict";
+'use strict';
 
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/translation-strings"),
-     RuleTester = require("eslint").RuleTester;
+const rule = require('../../../lib/rules/translation-strings');
+const RuleTester = require('eslint').RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
@@ -18,27 +18,27 @@ const rule = require("../../../lib/rules/translation-strings"),
 
 const ruleTester = new RuleTester();
 
-ruleTester.run("translation-strings", rule, {
+ruleTester.run('translation-strings', rule, {
     valid: [
         {
-            code: "_(\"Hello!\")",
+            code: '_("Hello!")',
             parserOptions: { ecmaVersion: 6 },
         },
         {
-            code: "'Hello!'",
+            code: '\'Hello!\'',
             parserOptions: { ecmaVersion: 6 },
         },
     ],
     invalid: [
         {
-            code: "_('Hello!')",
+            code: '_(\'Hello!\')',
             parserOptions: { ecmaVersion: 6 },
-            errors: [{message: "Single quotes cannot be used for translation strings."}]
+            errors: [{message: 'Single quotes cannot be used for translation strings.'}]
         },
         {
-            code: "\"Hello!\"",
+            code: '"Hello!"',
             parserOptions: { ecmaVersion: 6 },
-            errors: [{ message: "Double quotes are reserved for translation strings." }]
+            errors: [{ message: 'Double quotes are reserved for translation strings.' }]
         }
     ]
 });
