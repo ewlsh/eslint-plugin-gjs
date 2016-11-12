@@ -46,6 +46,8 @@ The plugin automatically imports all relevant rules. If you would like to avoid 
 }
 ```
 
+You can also add `gjs/cairo` or `gjs/girepository` to your env to enable the relevant globals. 
+
 ## Supported Rules
 
 * gjs/no-computed-properties
