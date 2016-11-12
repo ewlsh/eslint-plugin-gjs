@@ -1,6 +1,6 @@
 # eslint-plugin-gjs
 
-Adds compatibility for the GJS environment.
+Adds compatibility for the GJS (Gnome JavaScript) environment.
 
 ## Installation
 
@@ -20,30 +20,47 @@ $ npm install eslint-plugin-gjs --save-dev
 
 ## Usage
 
-Add `gjs` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `gjs` to the plugins section of your `.eslintrc` configuration file.
+Depending on your use case, add either `plugin:gjs/extension` or `plugin:gjs/application` to your extends section.
 
 ```json
 {
-    "plugins": [
-        "gjs"
-    ]
+    "plugins": ["gjs"],
+    "extends": [ "plugin:gjs/extension" ]
 }
 ```
 
-
-Then configure the rules you want to use under the rules section.
+The plugin automatically imports all relevant rules. If you would like to avoid this, add `gjs/application` or `gjs/shell-extension` to your env section. Then remove `"extends": [ "plugin:gjs/extension" ]`.
 
 ```json
 {
-    "rules": {
-        "gjs/rule-name": 2
+    "plugins": ["gjs"],
+    "env": {
+        "es6": true,
+        "gjs/application": true
     }
 }
 ```
 
 ## Supported Rules
 
-* Fill in provided rules here
+* gjs/no-computed-properties
+* gjs/no-generators
+* gjs/no-invalid-regexp
+* gjs/no-js-class
+* gjs/no-modules
+* gjs/no-numeric-literals
+* gjs/no-spread
+* gjs/no-super
+* gjs/no-template-strings
+* gjs/translation-strings
+
+* DEPRECATED: gjs/no-unsupported-syntax
+
+# Not Implemented
+* Lang.Class member formatting
+* Object literal formatting (unlikely to be implemented)
+* Lang.bind enforcement for closures
 
 
 
