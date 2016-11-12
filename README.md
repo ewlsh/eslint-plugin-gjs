@@ -2,6 +2,10 @@
 
 Adds compatibility for the GJS (Gnome JavaScript) environment.
 
+## Development & Bugs
+
+Report bugs, explore the source, and contribute on the [GitHub](https://github.com/rockon999/eslint-plugin-gjs).
+
 ## Installation
 
 You'll first need to install [ESLint](http://eslint.org):
