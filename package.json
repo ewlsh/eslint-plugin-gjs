@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-gjs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Adds compatibility for the GJS (Gnome JavaScript) environment.",
   "keywords": [
     "eslint",
